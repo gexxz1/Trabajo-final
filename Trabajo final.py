@@ -64,6 +64,43 @@ linea_tiempo_dict = {
 
 
 # ==========================================================
+# ENSAYO DE ÉTICA Y ASPECTOS SOCIALES
+# ==========================================================
+
+TEXTO_ENSAYO = """Ética y aspectos sociales de la Inteligencia Artificial
+
+Introducción
+En los últimos años, la Inteligencia Artificial (IA) se ha vuelto parte de nuestra vida diaria. Actualmente podemos encontrarla en aplicaciones, redes sociales, buscadores, asistentes virtuales, plataformas de entretenimiento y también en diferentes áreas de trabajo y educación. La IA puede facilitar muchas actividades y ayudar a resolver problemas de una manera más rápida, pero también genera dudas y problemas relacionados con la ética y la sociedad.
+Por esta razón, es importante no solamente conocer cómo funciona la Inteligencia Artificial, sino también pensar en la manera en que se utiliza y en las consecuencias que puede tener para las personas. El uso de la IA debe realizarse de una forma responsable, respetando los derechos de las personas y buscando que sus beneficios sean aprovechados sin causar daños.
+
+Desarrollo
+Ética en la Inteligencia Artificial
+La ética en la Inteligencia Artificial se relaciona con los principios que deben tomarse en cuenta al crear y utilizar sistemas de IA. Estos sistemas pueden trabajar con grandes cantidades de información y tomar decisiones o generar resultados que afectan a las personas, por lo que es importante que exista responsabilidad en su desarrollo.
+Uno de los aspectos más importantes es la privacidad. Muchas herramientas de Inteligencia Artificial necesitan utilizar datos para funcionar, por lo que se debe tener cuidado con la información personal de los usuarios. También es importante informar para qué se utilizan esos datos y evitar que sean utilizados de manera incorrecta.
+Otro aspecto es la responsabilidad. Cuando una Inteligencia Artificial comete un error o genera un resultado incorrecto, debe existir una persona o una organización responsable de revisar lo sucedido. No se debería dejar toda la responsabilidad en la tecnología, ya que la IA es una herramienta creada y utilizada por personas.
+También está el problema de los sesgos. Si una IA aprende de información que contiene prejuicios o desigualdades, puede generar resultados injustos para algunas personas. Por eso, es necesario revisar los datos y los sistemas antes y durante su utilización.
+
+Aspectos sociales de la Inteligencia Artificial
+La Inteligencia Artificial también tiene un impacto importante en la sociedad. Uno de sus principales beneficios es que puede ayudar en actividades educativas, laborales y personales. Por ejemplo, puede apoyar a los estudiantes para comprender algunos temas, ayudar a las empresas a organizar información y facilitar diferentes tareas.
+Sin embargo, también existen preocupaciones relacionadas con el empleo. Algunas actividades que anteriormente eran realizadas por personas pueden ser automatizadas mediante sistemas de IA. Esto puede cambiar la manera en que se realizan ciertos trabajos y hacer que las personas tengan que aprender nuevas habilidades para adaptarse a estos cambios.
+Otro aspecto social importante es la desinformación. Actualmente existen herramientas capaces de generar imágenes, textos, audios y videos que pueden parecer reales. Si estas herramientas se utilizan de manera incorrecta, pueden ayudar a crear información falsa y provocar confusión entre las personas. Por eso es importante aprender a verificar la información antes de compartirla.
+Además, no todas las personas tienen las mismas posibilidades de acceder a la tecnología. La falta de acceso a Internet, dispositivos o herramientas digitales puede aumentar las diferencias entre algunos grupos de la sociedad. Por esta razón, el desarrollo de la Inteligencia Artificial también debería considerar que sus beneficios sean accesibles para diferentes personas.
+
+Uso responsable de la Inteligencia Artificial
+Para aprovechar los beneficios de la IA es necesario utilizarla de manera responsable. Las personas deben entender que la Inteligencia Artificial puede equivocarse y que sus resultados deben revisarse antes de utilizarlos como información definitiva.
+En el ámbito educativo, por ejemplo, la IA puede servir como una herramienta de apoyo para investigar, comprender temas o generar ideas, pero no debería sustituir completamente el aprendizaje del estudiante. También es importante reconocer cuándo se utiliza contenido generado por IA y evitar presentar como propio un trabajo que realmente fue realizado por una herramienta.
+En el ámbito laboral, las empresas también deben establecer reglas para proteger la información de sus trabajadores y clientes. Además, deben considerar las consecuencias que puede tener la automatización y preparar a las personas para los cambios que puedan surgir.
+
+Conclusión
+La Inteligencia Artificial ofrece muchas oportunidades y puede ser una herramienta muy útil para la sociedad, pero su desarrollo y utilización también presentan diferentes desafíos éticos y sociales. Aspectos como la privacidad, la responsabilidad, los sesgos, el empleo, la desinformación y el acceso a la tecnología deben ser considerados para evitar consecuencias negativas.
+Desde mi punto de vista, la Inteligencia Artificial no es algo que deba verse solamente como algo bueno o malo, sino como una tecnología que depende de la manera en que las personas deciden utilizarla. Por eso es importante aprender sobre ella y utilizarla con responsabilidad, pensamiento crítico y respeto hacia los demás. De esta manera se pueden aprovechar sus beneficios sin dejar de lado los valores y derechos de las personas.
+
+Referencias
+IBM. (s. f.). Artificial intelligence. IBM. https://www.ibm.com/think/topics/artificial-intelligence
+UNESCO. (2021). Recommendation on the ethics of artificial intelligence. UNESCO. https://www.unesco.org/en/artificial-intelligence/recommendation-ethics"""
+
+
+# ==========================================================
 # CLASE PRINCIPAL
 # ==========================================================
 
@@ -82,26 +119,6 @@ class AplicacionEscritorioIA:
         self.ventana.unbind_all("<MouseWheel>")
         for widget in self.ventana.winfo_children():
             widget.destroy()
-
-    def agregar_barra_superior(self):
-        marco_superior = tk.Frame(self.ventana, bg=COLOR_FONDO)
-        marco_superior.pack(fill="x", padx=20, pady=(10, 0))
-
-        boton_regresar = tk.Button(
-            marco_superior,
-            text="🏠 Volver al Menú Principal",
-            command=self.menu_principal,
-            font=("Arial", 10, "bold"),
-            bg=COLOR_PRINCIPAL,
-            fg=COLOR_BLANCO,
-            activebackground=COLOR_PRINCIPAL_OSCURO,
-            activeforeground=COLOR_BLANCO,
-            relief="flat",
-            cursor="hand2",
-            padx=12,
-            pady=4
-        )
-        boton_regresar.pack(side="left")
 
     def crear_titulo(self, texto):
         titulo = tk.Label(
@@ -145,7 +162,7 @@ class AplicacionEscritorioIA:
             bg=COLOR_FONDO,
             fg=COLOR_PRINCIPAL
         )
-        titulo.pack(pady=(35, 5))
+        titulo.pack(pady=(25, 5))
 
         subtitulo = tk.Label(
             self.ventana,
@@ -154,13 +171,14 @@ class AplicacionEscritorioIA:
             bg=COLOR_FONDO,
             fg=COLOR_GRIS
         )
-        subtitulo.pack(pady=(0, 20))
+        subtitulo.pack(pady=(0, 15))
 
         self.crear_boton_menu("⏳  Línea del tiempo", self.mostrar_linea_tiempo)
         self.crear_boton_menu("📄  Infografía 1 - ChatGPT", lambda: self.mostrar_infografia(1))
         self.crear_boton_menu("🤖  Infografía 2 - Tesla Optimus", lambda: self.mostrar_infografia(2))
         self.crear_boton_menu("🧠  Infografía 3 - IA Superinteligente", lambda: self.mostrar_infografia(3))
         self.crear_boton_menu("📚  Glosario de IA", self.mostrar_glosario)
+        self.crear_boton_menu("⚖️  Ética y Aspectos Sociales", self.mostrar_ensayo)
 
         boton_salir = tk.Button(
             self.ventana,
@@ -173,7 +191,7 @@ class AplicacionEscritorioIA:
             relief="flat",
             cursor="hand2"
         )
-        boton_salir.pack(pady=15)
+        boton_salir.pack(pady=10)
 
     # ======================================================
     # LÍNEA DEL TIEMPO
@@ -256,12 +274,11 @@ class AplicacionEscritorioIA:
         self.texto_evento.config(state="disabled")
 
     # ======================================================
-    # VISUALIZADOR DE INFOGRAFÍAS (CON OPCIÓN VOLVER AL MENÚ ARRIBA)
+    # VISUALIZADOR DE INFOGRAFÍAS
     # ======================================================
 
     def mostrar_infografia(self, num_infografia):
         self.limpiar_ventana()
-        self.agregar_barra_superior()
         
         titulos = {
             1: "INFOGRAFÍA 1: CHATGPT",
@@ -419,6 +436,50 @@ class AplicacionEscritorioIA:
         self.texto_definicion.config(state="normal")
         self.texto_definicion.delete("1.0", tk.END)
         self.texto_definicion.config(state="disabled")
+
+    # ======================================================
+    # ÉTICA Y ASPECTOS SOCIALES
+    # ======================================================
+
+    def mostrar_ensayo(self):
+        self.limpiar_ventana()
+        self.crear_titulo("ÉTICA Y ASPECTOS SOCIALES DE LA IA")
+
+        marco_contenido = tk.Frame(self.ventana, bg=COLOR_FONDO)
+        marco_contenido.pack(fill="both", expand=True, padx=40, pady=10)
+
+        texto_ensayo = tk.Text(
+            marco_contenido,
+            font=("Arial", 11),
+            wrap="word",
+            bg=COLOR_BLANCO,
+            fg=COLOR_TEXTO,
+            bd=1,
+            relief="solid",
+            padx=15,
+            pady=15
+        )
+        scrollbar = ttk.Scrollbar(marco_contenido, orient="vertical", command=texto_ensayo.yview)
+        texto_ensayo.configure(yscrollcommand=scrollbar.set)
+
+        scrollbar.pack(side="right", fill="y")
+        texto_ensayo.pack(side="left", fill="both", expand=True)
+
+        texto_ensayo.insert(tk.END, TEXTO_ENSAYO)
+        texto_ensayo.config(state="disabled")
+
+        boton_menu = tk.Button(
+            self.ventana,
+            text="← Regresar al menú",
+            command=self.menu_principal,
+            font=("Arial", 11, "bold"),
+            width=25,
+            bg=COLOR_PRINCIPAL,
+            fg=COLOR_BLANCO,
+            relief="flat",
+            cursor="hand2"
+        )
+        boton_menu.pack(pady=10)
 
     # ======================================================
     # SALIR
