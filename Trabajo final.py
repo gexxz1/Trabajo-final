@@ -135,8 +135,8 @@ class AplicacionEscritorioIA:
             self.ventana,
             text=texto,
             command=comando,
-            font=("Arial", 12, "bold"),
-            width=32,
+            font=("Arial", 11, "bold"),
+            width=35,
             height=2,
             bg=COLOR_PRINCIPAL,
             fg=COLOR_BLANCO,
@@ -145,7 +145,7 @@ class AplicacionEscritorioIA:
             relief="flat",
             cursor="hand2"
         )
-        boton.pack(pady=7)
+        boton.pack(pady=5)
         return boton
 
     # ======================================================
@@ -162,7 +162,7 @@ class AplicacionEscritorioIA:
             bg=COLOR_FONDO,
             fg=COLOR_PRINCIPAL
         )
-        titulo.pack(pady=(25, 5))
+        titulo.pack(pady=(20, 5))
 
         subtitulo = tk.Label(
             self.ventana,
@@ -171,12 +171,13 @@ class AplicacionEscritorioIA:
             bg=COLOR_FONDO,
             fg=COLOR_GRIS
         )
-        subtitulo.pack(pady=(0, 15))
+        subtitulo.pack(pady=(0, 10))
 
         self.crear_boton_menu("⏳  Línea del tiempo", self.mostrar_linea_tiempo)
         self.crear_boton_menu("📄  Infografía 1 - ChatGPT", lambda: self.mostrar_infografia(1))
         self.crear_boton_menu("🤖  Infografía 2 - Tesla Optimus", lambda: self.mostrar_infografia(2))
         self.crear_boton_menu("🧠  Infografía 3 - IA Superinteligente", lambda: self.mostrar_infografia(3))
+        self.crear_boton_menu("📊  Infografía 4 - Algoritmos de Búsqueda", lambda: self.mostrar_infografia(4))
         self.crear_boton_menu("📚  Glosario de IA", self.mostrar_glosario)
         self.crear_boton_menu("⚖️  Ética y Aspectos Sociales", self.mostrar_ensayo)
 
@@ -283,16 +284,27 @@ class AplicacionEscritorioIA:
         titulos = {
             1: "INFOGRAFÍA 1: CHATGPT",
             2: "INFOGRAFÍA 2: TESLA OPTIMUS",
-            3: "INFOGRAFÍA 3: IA SUPERINTELIGENTE"
+            3: "INFOGRAFÍA 3: IA SUPERINTELIGENTE",
+            4: "INFOGRAFÍA 4: ALGORITMOS DE BÚSQUEDA"
         }
         self.crear_titulo(titulos[num_infografia])
 
-        nombres_posibles = [
-            f"Infografia{num_infografia}.jpg.jpg",
-            f"infografia{num_infografia}.jpg.jpg",
-            f"Infografia{num_infografia}.jpg",
-            f"infografia{num_infografia}.jpg"
-        ]
+        if num_infografia == 4:
+            nombres_posibles = [
+                "infografia AB.jpg",
+                "Infografia AB.jpg",
+                "infografia4.jpg",
+                "Infografia4.jpg",
+                "infografia4.jpg.jpg",
+                "Infografia4.jpg.jpg"
+            ]
+        else:
+            nombres_posibles = [
+                f"Infografia{num_infografia}.jpg.jpg",
+                f"infografia{num_infografia}.jpg.jpg",
+                f"Infografia{num_infografia}.jpg",
+                f"infografia{num_infografia}.jpg"
+            ]
 
         ruta_encontrada = None
         for nombre in nombres_posibles:
